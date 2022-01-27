@@ -7,7 +7,9 @@ window.onload = function () {
 	//ゲーム開始前に必要な画像・音を読み込む部分
 
 
-	
+	//クリック音読み込み
+	const clickSndUrl = "iyou.mp3";						//game.htmlからの相対パス
+	game.preload([clickSndUrl]); 				//データを読み込んでおく
 
 	//ぞう山くん画像
 	const zoyamaImgUrl = "zoyama.png";						//game.htmlからの相対パス
@@ -42,7 +44,7 @@ window.onload = function () {
 
 		//ポイント表示テキスト
 		const scoreText = new Label(); 					//テキストはLabelクラス
-		scoreText.font = "30px Meiryo";				//フォントはメイリオ 20px 変えたかったらググってくれ
+		scoreText.font = "20px Meiryo";				//フォントはメイリオ 20px 変えたかったらググってくれ
 		scoreText.color = 'rgba(255,255,255,1)';		//色　RGB+透明度　今回は白
 		scoreText.width = 400;							//横幅指定　今回画面サイズ400pxなので、width:400pxだと折り返して二行目表示してくれる
 		scoreText.moveTo(0, 30);						//移動位置指定
@@ -90,14 +92,14 @@ window.onload = function () {
 				state = 1;							//ゲームスタート状態に移行
 			}
 			if (state == 1) {							//ゲームスタート　状態１
-				zoyamaImg.x += 15;
+				zoyamaImg.x += 20;
 			}
 			if (state == 2) {							//状態２（point３以上なら）
 				zoyamaImg.x += 25;
 			}
 			if (state == 3) {							//状態３（point６以上から）
 				zoyamaImg.x += 15;
-				zoyamaImg.y = 200 + Math.sin(zoyamaImg.x / 70) * 100; // ｙ座標を振幅100pxのサイン波で移動(Sinは便利なので慣れとくといいよ！)
+				zoyamaImg.y = 200 + Math.sin(zoyamaImg.x / 80) * 100; // ｙ座標を振幅100pxのサイン波で移動(Sinは便利なので慣れとくといいよ！)
 			}
 			if (state == 4) {							//状態４（point９以上から）　4は初期セット状態（state=4）と移動状態（state=4.1)の2つに状態をわける		
 				zoyamaImg.y = Math.random() * 400;			//ｙ座標の位置をランダムに決定
