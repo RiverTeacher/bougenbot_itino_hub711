@@ -74,8 +74,15 @@ window.onload = function () {
 				state = 3;
 			} else if (point < 13) {
 				state = 4;
-			} else {
+			} else if (point < 30) {
 				state = 5;
+			} else if (point < 80) {
+				state = 6;
+			} else if (point < 120) {
+				state = 7;
+			} else {
+
+				state = 8;
 			}
 
 		};
@@ -110,6 +117,18 @@ window.onload = function () {
 			}
 			if (state == 5) {							//状態５（point１２以上から）　 ｙ軸が毎フレーム毎に変化する
 				zoyamaImg.x += 12;						//移動します。
+				zoyamaImg.y = Math.random() * 350;			//ｙ座標の位置を枚フレーム毎にランダム決定
+			}
+			if (state == 6) {							//状態５（point１２以上から）　 ｙ軸が毎フレーム毎に変化する
+				zoyamaImg.x += 15;						//移動します。
+				zoyamaImg.y = Math.random() * 350;			//ｙ座標の位置を枚フレーム毎にランダム決定
+			}
+			if (state == 7) {							//状態５（point１２以上から）　 ｙ軸が毎フレーム毎に変化する
+				zoyamaImg.x += 20;						//移動します。
+				zoyamaImg.y = Math.random() * 350;			//ｙ座標の位置を枚フレーム毎にランダム決定
+			}
+			if (state == 8) {							//状態５（point１２以上から）　 ｙ軸が毎フレーム毎に変化する
+				zoyamaImg.x += 25;						//移動します。
 				zoyamaImg.y = Math.random() * 350;			//ｙ座標の位置を枚フレーム毎にランダム決定
 			}
 
